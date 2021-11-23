@@ -33,7 +33,11 @@ const Forget: React.FC = () => {
         placeholder="Input email"
         label="E-mail"
         type="email"
-        formik={formik}
+        handleBlur={formik.handleBlur}
+        handleChange={formik.handleChange}
+        touched={formik.touched}
+        errors={formik.errors}
+        values={formik.values}
       />
 
       <div className="btn-content">
@@ -44,8 +48,6 @@ const Forget: React.FC = () => {
       </div>
     </form>
   )
-  return (
-    <ModalMain component={content} title="Forget Password" status={true} />
-  )
+  return <ModalMain component={content} title="Forget Password" status={true} />
 }
 export default Forget

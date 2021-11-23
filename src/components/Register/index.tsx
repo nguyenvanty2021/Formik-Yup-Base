@@ -94,7 +94,6 @@ const Register: React.FC = () => {
     validationSchema,
   })
   return (
-
     <form className="form" onSubmit={formik.handleSubmit}>
       <InputMain
         style={{ textIndent: '0.5rem', padding: '0.5rem 0' }}
@@ -102,7 +101,11 @@ const Register: React.FC = () => {
         placeholder="Input email"
         label="E-mail"
         type="email"
-        formik={formik}
+        handleBlur={formik.handleBlur}
+        handleChange={formik.handleChange}
+        touched={formik.touched}
+        errors={formik.errors}
+        values={formik.values}
       />
       <InputMain
         style={{ textIndent: '0.5rem', padding: '0.5rem 0' }}
@@ -110,7 +113,11 @@ const Register: React.FC = () => {
         placeholder="Input age"
         label="Age"
         type="text"
-        formik={formik}
+        handleBlur={formik.handleBlur}
+        handleChange={formik.handleChange}
+        touched={formik.touched}
+        errors={formik.errors}
+        values={formik.values}
       />
       <InputMain
         style={{ textIndent: '0.5rem', padding: '0.5rem 0' }}
@@ -118,7 +125,11 @@ const Register: React.FC = () => {
         placeholder="Input password"
         label="Password"
         type="text"
-        formik={formik}
+        handleBlur={formik.handleBlur}
+        handleChange={formik.handleChange}
+        touched={formik.touched}
+        errors={formik.errors}
+        values={formik.values}
       />
       <InputMain
         style={{ textIndent: '0.5rem', padding: '0.5rem 0' }}
@@ -126,44 +137,59 @@ const Register: React.FC = () => {
         placeholder="Input re-password"
         label="Re-password"
         type="text"
-        formik={formik}
+        handleBlur={formik.handleBlur}
+        handleChange={formik.handleChange}
+        touched={formik.touched}
+        errors={formik.errors}
+        values={formik.values}
       />
       <CheckboxMain
         type="checkbox"
         label="Language"
         name="language"
+        handleChange={formik.handleChange}
+        handleBlur={formik.handleBlur}
         options={arrayCheckbox}
-        formik={formik}
+        values={formik.values}
+        touched={formik.touched}
       />
       <RadioMain
         type="radio"
         label="Status"
         name="status"
         options={arrayRadio}
-        formik={formik}
+        handleChange={formik.handleChange}
+        handleBlur={formik.handleBlur}
+        values={formik.values}
       />
       <SelectMain
         type="select"
         label="City"
         name="city"
         options={arraySelect}
-        formik={formik}
+        values={formik.values}
+        touched={formik.touched}
+        handleBlur={formik.handleBlur}
+        handleChange={formik.handleChange}
       />
       <TextAreaMain
         style={{}}
         name="description"
         placeholder="Input description"
         label="Description"
-        formik={formik}
+        handleChange={formik.handleChange}
+        handleBlur={formik.handleBlur}
+        values={formik.values}
+        touched={formik.touched}
+        errors={formik.errors}
       />
-      <div className="btn">
+      <div className="btn-register">
         {' '}
-        <button className="btn-child" type="submit">
+        <button className="btn-child-register" type="submit">
           Submit
         </button>
       </div>
     </form>
-  
   )
 }
 export default Register

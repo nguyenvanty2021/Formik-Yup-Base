@@ -2,20 +2,27 @@ import React from 'react'
 import TextErrors from '../TextErrors'
 import './index.css'
 interface InputMainProps {
-  formik: any
   label: string
   name: string
+  touched: any
+  values: any
+  handleBlur: (e: React.FocusEvent<any>) => void
+  handleChange: (e: React.ChangeEvent<any>) => void
+  errors: any
   placeholder: string
   style: any
 }
 const TextAreaMain: React.FC<InputMainProps> = ({
   placeholder,
   style,
-  formik,
+  values,
+  handleBlur,
+  touched,
+  handleChange,
+  errors,
   label,
   name,
 }) => {
-  console.log(formik)
   return (
     <div className="input">
       <label htmlFor={name}>{label}</label>
@@ -26,18 +33,18 @@ const TextAreaMain: React.FC<InputMainProps> = ({
         cols="50"
         // id="name"
         style={
-          formik.touched[name] && formik.errors[name]
+          touched[name] && errors[name]
             ? { ...style, border: '1px solid red' }
             : style
         }
         name={name}
         placeholder={placeholder}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.name}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        value={values.name}
       />
-      {formik.touched[name] && formik.errors[name] ? (
-        <TextErrors message={formik.errors[name]} />
+      {touched[name] && errors[name] ? (
+        <TextErrors message={errors[name]} />
       ) : null}
     </div>
   )

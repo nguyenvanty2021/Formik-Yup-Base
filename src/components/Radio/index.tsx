@@ -1,20 +1,23 @@
 import React from 'react'
 import './index.css'
 interface RadioMainProps {
-  formik: any
   type: string
   label: string
   options: any
+  values: any
+  handleBlur: (e: React.FocusEvent<any>) => void
+  handleChange: (e: React.ChangeEvent<any>) => void
   name: string
 }
 const RadioMain: React.FC<RadioMainProps> = ({
   options,
-  formik,
   type,
   label,
+  handleBlur,
+  values,
   name,
+  handleChange,
 }) => {
-  console.log(formik)
   return (
     <div className="radio">
       <div>{label}</div>
@@ -30,9 +33,9 @@ const RadioMain: React.FC<RadioMainProps> = ({
                   type={type}
                   name={name}
                   id={option.value}
-                  checked={formik.values.status === option.value}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
+                  checked={values.status === option.value}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                   value={option.value}
                 />
               </div>

@@ -2,27 +2,31 @@ import React from 'react'
 import TextErrors from '../TextErrors'
 import './index.css'
 interface SelectMainProps {
-  formik: any
   type: string
   label: string
+  touched: any
+  values: any
   options: any
+  handleBlur: (e: React.FocusEvent<any>) => void
+  handleChange: (e: React.ChangeEvent<any>) => void
   name: string
 }
 const SelectMain: React.FC<SelectMainProps> = ({
   options,
-  formik,
-  type,
+  handleBlur,
+  values,
+  touched,
+  handleChange,
   label,
   name,
 }) => {
-  console.log(formik)
   return (
     <div className="select">
       <div>{label}</div>
       <div className="item">
         <select
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
+          onChange={handleChange}
+          onBlur={handleBlur}
           id={name}
           name={name}
         >
@@ -41,10 +45,7 @@ const SelectMain: React.FC<SelectMainProps> = ({
             })}
         </select>
       </div>
-      {formik &&
-      formik.values &&
-      formik.touched[name] &&
-      formik.values[name] === '' ? (
+      {values && touched[name] && values[name] === '' ? (
         <TextErrors message="Required" />
       ) : null}
     </div>

@@ -2,20 +2,25 @@ import React from 'react'
 import TextErrors from '../TextErrors'
 import './index.css'
 interface CheckboxMainProps {
-  formik: any
+  handleBlur: (e: React.FocusEvent<any>) => void
+  handleChange: (e: React.ChangeEvent<any>) => void
+  values: any
   type: string
   label: string
   options: any
   name: string
+  touched: any
 }
 const CheckboxMain: React.FC<CheckboxMainProps> = ({
   options,
-  formik,
+  handleChange,
+  handleBlur,
   type,
+  values,
   label,
+  touched,
   name,
 }) => {
-  console.log(formik)
   return (
     <div className="checkbox">
       <div>{label}</div>
@@ -32,8 +37,8 @@ const CheckboxMain: React.FC<CheckboxMainProps> = ({
                   name={name}
                   id={option.value}
                   // checked={field.value.includes(option.value)}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                   value={option.value}
                 />
               </div>
@@ -44,11 +49,8 @@ const CheckboxMain: React.FC<CheckboxMainProps> = ({
             </div>
           )
         })}
-      {(formik &&
-        formik.values &&
-        formik.values[name] &&
-        formik.values[name].length === 0) ||
-      (formik.touched[name] && formik.values[name] === '') ? (
+      {(values && values[name] && values[name].length === 0) ||
+      (touched[name] && values[name] === '') ? (
         <TextErrors message="Required" />
       ) : null}
     </div>
