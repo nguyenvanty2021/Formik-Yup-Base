@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import './index.css'
 import { CloseOutlined } from '@ant-design/icons'
-interface ModalProps {
-  title: string
-  status: boolean
-  component: any
-}
+import { ModalProps } from '../../Model'
+
 const ModalMain: React.FC<ModalProps> = ({ title, status, component }) => {
   const [modal, setModal] = useState(status)
   return (

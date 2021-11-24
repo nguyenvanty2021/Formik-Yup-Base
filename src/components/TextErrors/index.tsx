@@ -1,8 +1,8 @@
-import React from "react";
-interface TextErrorsProps {
-  message: string;
-}
+import React from 'react'
+import { TextErrorsProps } from '../../Model'
+import './index.css'
+
 const TextErrors: React.FC<TextErrorsProps> = ({ message }) => {
-  return <div style={{ color: "red", marginTop: "0.5rem",display:"flex",width:"100%" }}>{message}</div>;
-};
-export default TextErrors;
+  return <div className="errors">{message}</div>
+}
+export default TextErrors

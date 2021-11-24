@@ -1,16 +1,7 @@
 import React from 'react'
+import { CheckboxMainProps } from '../../Model'
 import TextErrors from '../TextErrors'
-import './index.css'
-interface CheckboxMainProps {
-  handleBlur: (e: React.FocusEvent<any>) => void
-  handleChange: (e: React.ChangeEvent<any>) => void
-  values: any
-  type: string
-  label: string
-  options: any
-  name: string
-  touched: any
-}
+import "./index.css"
 const CheckboxMain: React.FC<CheckboxMainProps> = ({
   options,
   handleChange,
@@ -32,7 +23,7 @@ const CheckboxMain: React.FC<CheckboxMainProps> = ({
               <div>
                 {' '}
                 <input
-                  style={{ width: '1.5rem' }}
+                  style={{width:"1.5rem"}}
                   type={type}
                   name={name}
                   id={option.value}

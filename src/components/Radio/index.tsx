@@ -1,14 +1,7 @@
 import React from 'react'
+import { RadioMainProps } from '../../Model'
 import './index.css'
-interface RadioMainProps {
-  type: string
-  label: string
-  options: any
-  values: any
-  handleBlur: (e: React.FocusEvent<any>) => void
-  handleChange: (e: React.ChangeEvent<any>) => void
-  name: string
-}
+
 const RadioMain: React.FC<RadioMainProps> = ({
   options,
   type,
@@ -29,7 +22,7 @@ const RadioMain: React.FC<RadioMainProps> = ({
               <div>
                 {' '}
                 <input
-                  style={{ width: '1.5rem' }}
+                 style={{width:"1.5rem"}}
                   type={type}
                   name={name}
                   id={option.value}

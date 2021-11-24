@@ -7,54 +7,8 @@ import CheckboxMain from '../Checkbox'
 import RadioMain from '../Radio'
 import SelectMain from '../Select'
 import TextAreaMain from '../TextArea'
-interface Array {
-  key: string
-  value: string
-}
-const arraySelect = [
-  {
-    key: 'Select city',
-    value: '',
-  },
-  {
-    key: 'Ho Chi Minh',
-    value: 'hcm',
-  },
-  {
-    key: 'Ha Noi',
-    value: 'hn',
-  },
-]
-const arrayRadio: Array[] = [
-  {
-    key: 'Young',
-    value: 'young',
-  },
-  {
-    key: 'Older',
-    value: 'older',
-  },
-]
-const arrayCheckbox: Array[] = [
-  {
-    key: 'ReactJS',
-    value: 'reactJS',
-  },
-  {
-    key: 'NextJS',
-    value: 'nextJS',
-  },
-]
-interface InitialValueProps<T> {
-  email: T
-  language: T[] | T
-  status: T
-  city: T
-  password: T
-  rePassword: T
-  description: T
-  age: T
-}
+import { arrayCheckbox, arrayRadio, arraySelect } from '../../Model/data'
+import { InitialValueProps } from '../../Model'
 const initialValues: any = {
   email: '',
   language: '',
@@ -65,12 +19,10 @@ const initialValues: any = {
   description: '',
   age: '',
 }
-
 const onSubmit = (values: InitialValueProps<string>[]) => {
   console.log('Form data', values)
   alert('OKE LA')
 }
-
 const validationSchema = Yup.object({
   email: Yup.string().email('Invalid email format').required('Required'),
   language: Yup.array().required('Required'),

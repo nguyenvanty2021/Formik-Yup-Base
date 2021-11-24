@@ -1,18 +1,8 @@
 import React from 'react'
+import { InputMainProps } from '../../Model'
 import TextErrors from '../TextErrors'
 import './index.css'
-interface InputMainProps {
-  type: string
-  label: string
-  name: string
-  handleBlur: (e: React.FocusEvent<any>) => void
-  handleChange: (e: React.ChangeEvent<any>) => void
-  placeholder: string
-  touched: any
-  style: any
-  errors: any
-  values?: any
-}
+
 const InputMain: React.FC<InputMainProps> = ({
   placeholder,
   style,

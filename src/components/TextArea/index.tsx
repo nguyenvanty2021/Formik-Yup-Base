@@ -1,18 +1,9 @@
 import React from 'react'
+import { TextAreaMainProps } from '../../Model'
 import TextErrors from '../TextErrors'
 import './index.css'
-interface InputMainProps {
-  label: string
-  name: string
-  touched: any
-  values: any
-  handleBlur: (e: React.FocusEvent<any>) => void
-  handleChange: (e: React.ChangeEvent<any>) => void
-  errors: any
-  placeholder: string
-  style: any
-}
-const TextAreaMain: React.FC<InputMainProps> = ({
+
+const TextAreaMain: React.FC<TextAreaMainProps> = ({
   placeholder,
   style,
   values,

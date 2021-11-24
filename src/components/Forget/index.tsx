@@ -4,9 +4,8 @@ import * as Yup from 'yup'
 import InputMain from '../Input'
 import { useFormik } from 'formik'
 import ModalMain from '../Modal'
-interface InitialValueProps<T> {
-  email: T
-}
+import { InitialValueProps } from '../../Model'
+
 const initialValues: any = {
   email: '',
 }

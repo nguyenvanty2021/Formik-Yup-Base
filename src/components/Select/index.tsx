@@ -1,16 +1,8 @@
 import React from 'react'
+import { SelectMainProps } from '../../Model'
 import TextErrors from '../TextErrors'
 import './index.css'
-interface SelectMainProps {
-  type: string
-  label: string
-  touched: any
-  values: any
-  options: any
-  handleBlur: (e: React.FocusEvent<any>) => void
-  handleChange: (e: React.ChangeEvent<any>) => void
-  name: string
-}
+
 const SelectMain: React.FC<SelectMainProps> = ({
   options,
   handleBlur,
@@ -36,7 +28,7 @@ const SelectMain: React.FC<SelectMainProps> = ({
               return (
                 <option
                   key={index}
-                  style={{ width: '1.5rem' }}
+                  className="options"
                   value={option.value}
                 >
                   {option.key}
